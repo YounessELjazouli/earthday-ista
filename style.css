@@ -61,6 +61,8 @@ body {
   font-family: "Urbanist";
   font-weight: 400;
   height:7vh ;
+  border-radius: 6px;
+
 
 }
 .form-container .form .submit-btn:hover {
@@ -77,6 +79,7 @@ body {
   padding: 0.2rem 0.8rem;
   height:7vh ;
   width: 17rem;
+  border-radius: 10px;
 }
 .form-container .sidebar {
   box-shadow: rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.178) 0px 4px 6px;
