@@ -9,11 +9,13 @@
 </head>
 <body>
     <section class="form-container">
-        <form action="" method="get" class="form">
+        <form class="form">
             <label for="username">Votre Nom Complet</label>
-            <input type="text" name="username" id="username" class="username-bar" required
+            <input type="text" name="username" id="nomComplet" class="username-bar" required
                 placeholder="Your Github Username">
-            <input type="button" onclick="generateImage()" value="Telecharger votre invitaion" class="submit-btn">
+                <canvas id="canvas"></canvas>
+
+            <button type="button" onclick="generateImage()"  class="submit-btn">Telecharger votre invitaion </button>
         </form>
         <div class="sidebar">
             <h1>Séminaire Jour de la Terre</h1>

@@ -112,3 +112,6 @@ body {
     width: 8rem;
   }
 }
+#canvas{
+  display: none;
+}
