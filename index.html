@@ -1,102 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>OFPPT-EARTH_DAY</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <!-- partial:index.partial.html -->
-    <div class="slider-wrapper">
-      <div class="slider">
-        <div class="slide-navigation__squares">
-          <div class="squares-wrapper">
-            <div class="squares-slider">
-              <span class="square"></span>
-              <span class="square"></span>
-              <span class="square red"></span>
-              <span class="square"></span>
-              <span class="square"></span>
-            </div>
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="form-container">
+        <form action="" method="get" class="form">
+            <label for="username">Votre Nom Complet</label>
+            <input type="text" name="username" id="username" class="username-bar" required
+                placeholder="Your Github Username">
+            <input type="submit" value="Telecharger votre invitaion" class="submit-btn">
+        </form>
+        <div class="sidebar">
+            <h1>Séminaire Jour de la Terre</h1>
+            <p>Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire sous le théme "Jour de la terre" qui se tiendra le 26 Avril 2023, à l'ISTA Temara. <br>Il vous suffit de saisir votre nom dans la zone de texte à votre gauche pour télécharger votre invitation.</p>
+            <h2>HAPPY EARTH DAY </h2>
         </div>
-        <div class="slides-container">
-          <div class="slide-wrapper">
-            <div class="slide" data-order="1">
-              <img src="artem-beliaikin-BpQ-ClsKeXg-unsplash.jpg" alt="" />
-              <div class="slide-content">
-                <h1>Séminaire</h1>
-                <h2>Jour de la Terre</h2>
-                <div class="slide-txt">
-                  <p>
-                    L'OFPPT TEMARA ORGANISE UN SEMINAIRE POUR CELEBRER LA
-                    JOURNEE DE LA TERRE, SI VOUS ETES INTERESSES A PARTICIPER A
-                    L'EVENEMENT, VEUILLEZ SAISIR VOTRE NOM COMPLET
-                    <input
-                      type="text"
-                      id="nomComplet"
-                      placeholder="Votre Nom Complet"
-                    />
-                    ET TELECHARGER VOTRE INVITATION.
-                  </p>
-                  <canvas id="canvas"></canvas>
-
-                  <button onclick="generateImage()">
-                    Téléchargez votre invitaion
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="slide-navigation__txt">
-          <ul>
-            <li><span data-order="1">Mardi</span></li>
-            <li><span data-order="2">26</span></li>
-            <li><span data-order="3">Avril</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- partial -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-    <script src="./script.js"></script>
+    </section>
     <script>
-      function generateImage() {
-        // Load the image
-        var img = new Image();
-        img.onload = function () {
-          // Create a canvas element
-          var canvas = document.getElementById("canvas");
-          canvas.width = img.width;
-          canvas.height = img.height;
-
-          // Draw the image on the canvas
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0);
-
-          // Draw the text on the canvas
-          var text = document.getElementById("nomComplet").value;
-          ctx.font = "43px bolder Consolas";
-          ctx.fillStyle = "black";
-          ctx.fillText(text, 20, 370);
-
-          // Convert the canvas to an image and download it
-          var link = document.createElement("a");
-          link.href = canvas.toDataURL("image/png");
-          link.download =
-            "invitation" + document.getElementById("nomComplet").value + ".png";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        };
-        img.src = "invite.jpg";
-      }
-    </script>
-  </body>
+        function generateImage() {
+          // Load the image
+          var img = new Image();
+          img.onload = function () {
+            // Create a canvas element
+            var canvas = document.getElementById("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+  
+            // Draw the image on the canvas
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+  
+            // Draw the text on the canvas
+            var text = document.getElementById("nomComplet").value;
+            ctx.font = "43px bolder Consolas";
+            ctx.fillStyle = "black";
+            ctx.fillText(text, 20, 370);
+  
+            // Convert the canvas to an image and download it
+            var link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download =
+              "invitation" + document.getElementById("nomComplet").value + ".png";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          };
+          img.src = "invite.jpg";
+        }
+      </script>
+</body>
 </html>
