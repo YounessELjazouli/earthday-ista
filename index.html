@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EARTH DAY OFPPT-TEMARA</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <section class="form-container">
-        <form class="form">
-            <label for="username">Votre Nom Complet</label>
-            <input type="text" name="username" id="nomComplet" class="username-bar" required
-                placeholder="Saisir Votre Nom et Prenom">
-                <canvas id="canvas"></canvas>
+      <form class="form">
+        <label for="username">Votre Nom Complet</label>
+        <input
+          type="text"
+          name="username"
+          id="nomComplet"
+          class="username-bar"
+          required
+          placeholder="Saisir Votre Nom et Prenom"
+        />
+        <canvas id="canvas"></canvas>
 
-            <button type="button" onclick="generateImage()"  class="submit-btn">Telecharger votre invitaion </button>
-        </form>
-        <div class="sidebar">
-            <h1>Séminaire : Jour de la Terre</h1>
-            <p>Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire sous le théme "Jour de la terre" qui se tiendra le 26 Avril 2023, à l'ISTA Temara. <br>Il vous suffit de saisir votre nom et prénom dans la zone de texte pour télécharger votre invitation.</p>
-            <h2>HAPPY EARTH DAY </h2>
-        </div>
+        <button type="button" onclick="generateImage()" class="submit-btn">
+          Telecharger votre invitaion
+        </button>
+      </form>
+      <div class="sidebar">
+        <h1>Séminaire : Jour de la Terre</h1>
+        <p>
+          Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire
+          sous le théme "Jour de la terre" qui se tiendra le 26 Avril 2023, à
+          l'ISTA Temara. <br />Il vous suffit de saisir votre nom et prénom dans
+          la zone de texte pour télécharger votre invitation.
+        </p>
+        <h2>HAPPY EARTH DAY</h2>
+      </div>
     </section>
     <script>
-        function generateImage() {
-          // Load the image
-          var img = new Image();
-          img.onload = function () {
-            // Create a canvas element
-            var canvas = document.getElementById("canvas");
-            canvas.width = img.width;
-            canvas.height = img.height;
-  
-            // Draw the image on the canvas
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
-  
-            // Draw the text on the canvas
-            var text = document.getElementById("nomComplet").value;
-            ctx.font = "43px bolder Consolas";
+      function generateImage() {
+        // Load the image
+        var img = new Image();
+        img.onload = function () {
+          // Create a canvas element
+          var canvas = document.getElementById("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          // Draw the image on the canvas
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          // Draw the text on the canvas
+          var text = document.getElementById("nomComplet").value;
+          alert(text.length)
+          if (text.length < 13) {
+            ctx.font = "40px bolder Consolas";
             ctx.fillStyle = "black";
-            ctx.fillText(text, 20, 370);
-  
-            // Convert the canvas to an image and download it
-            var link = document.createElement("a");
-            link.href = canvas.toDataURL("image/png");
-            link.download =
-              "invitation" + document.getElementById("nomComplet").value + ".png";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          };
-          img.src = "invite.jpg";
-        }
-      </script>
-</body>
+            ctx.fillText(text, 40, 370);
+          } else if (text.length > 17 && text.length < 25) {
+            ctx.font = "32px bolder Consolas";
+            ctx.fillStyle = "black";
+            ctx.fillText(text, 10, 370);
+          } else {
+            ctx.font = "26px bolder Consolas";
+            ctx.fillStyle = "black";
+            ctx.fillText(text, 10, 370);
+            
+          }
+
+          // Convert the canvas to an image and download it
+          var link = document.createElement("a");
+          link.href = canvas.toDataURL("image/png");
+          link.download =
+            "invitation" + document.getElementById("nomComplet").value + ".png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        };
+        img.src = "invite.jpg";
+      }
+    </script>
+  </body>
 </html>
