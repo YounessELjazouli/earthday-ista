@@ -8,6 +8,9 @@
     <style>
       body {
         background-image: url("6772284.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
       }
       .thankyou-wrapper {
         width: 100%;
@@ -15,36 +18,42 @@
         margin: auto;
         padding: 10px 0px 50px;
       }
-      .thankyou-wrapper h1 {
+      .thankyou-wrapper img {
         font: 100px Arial, Helvetica, sans-serif;
-        text-align: center;
+        margin-inline:auto;
+        display: block;
         color: #333333;
         padding: 0px 10px 10px;
         height: 50vh;
       }
       @media screen and (max-width: 524px) {
-        .thankyou-wrapper h1 {
+        body{
+          height: 100vh;
+        }
+        .thankyou-wrapper img {
             height: 80vh;
+            height: 160px !important;
       }
+    
     }
       .thankyou-wrapper p {
         font: 26px Arial, Helvetica, sans-serif;
-        text-align: center;
+        margin-inline:auto;
+        display: block;
         color: #333333;
         padding: 5px 10px 10px;
         background-color: white;
         width: fit-content;
-        margin-inline: auto;
       }
       .thankyou-wrapper a {
         font: 26px Arial, Helvetica, sans-serif;
-        text-align: center;
+        display: block;
         color: #ffffff;
         display: block;
         text-decoration: none;
         width: 350px;
         background: #e47425;
-        margin: 10px auto 0px;
+        margin: 10px auto;
         padding: 15px 20px 15px;
         border-bottom: 5px solid #f96700;
       }
@@ -60,6 +69,27 @@
         padding: 15px 20px 15px;
         border-bottom: 5px solid #f96700;
       }
+      /* @media screen and (max-width: 524px) {
+        body{
+          overflow: hidden;
+        }
+        .thankyou-wrapper h1 img{
+          height: 50px;
+          width: 50px;
+        }
+        .thankyou-wrapper p {
+          font-size: 18px;
+        }
+        .thankyou-wrapper a {
+          font-size: 18px;
+          width: 250px;
+        }
+        .thankyou-wrapper a:hover {
+          font-size: 18px;
+          width: 200px;
+        }
+       
+      } */
     </style>
   </head>
   <body>
@@ -68,7 +98,7 @@
         <div class="login-process">
           <div class="login-main-container">
             <div class="thankyou-wrapper">
-              <h1><img src="merci.png" alt="thanks" /></h1>
+              <img src="merci.png" alt="thanks" />
               <p>
                 Dans L'attente de vous accueillir, je vous souhaite une agréable
                 visite.
