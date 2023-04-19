@@ -52,14 +52,14 @@
 
           // Draw the text on the canvas
           var text = document.getElementById("nomComplet").value;
-          if (text.length < 13) {
+          if (text.length < 15) {
             ctx.font = "40px bolder Consolas";
             ctx.fillStyle = "black";
             ctx.fillText(text, 40, 370);
-          } else if (text.length > 17 && text.length < 25) {
+          } else if (text.length > 15 && text.length < 22) {
             ctx.font = "32px bolder Consolas";
             ctx.fillStyle = "black";
-            ctx.fillText(text, 10, 370);
+            ctx.fillText(text, 20, 370);
           } else {
             ctx.font = "26px bolder Consolas";
             ctx.fillStyle = "black";
@@ -71,12 +71,12 @@
           var link = document.createElement("a");
           link.href = canvas.toDataURL("image/png");
           link.download =
-            "invitation" + document.getElementById("nomComplet").value + ".png";
+            "Invitation " + document.getElementById("nomComplet").value + ".png";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
         };
-        img.src = "invite.jpg";
+        img.src = "card.jpg";
       }
     </script>
   </body>
