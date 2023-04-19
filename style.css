@@ -51,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3vh;
-  height: 20rem;
+  height: 23rem;
   width: 25rem;
 }
 .form-container .form .submit-btn {
@@ -88,7 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2vh;
-  height: 20rem;
+  height: 23rem;
   width: 25rem;
   background: radial-gradient(circle at 10% 20%, rgb(85, 149, 27) 0.1%, rgb(183, 219, 87) 90%);
 }

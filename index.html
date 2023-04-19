@@ -26,11 +26,11 @@
         </button>
       </form>
       <div class="sidebar">
-        <h1>Séminaire : NOTRE TERRE NOTRE VIE</h1>
+        <h1>Séminaire : <i style="color:red;font-weight: 800;font-size: 1em;">NOTRE TERRE NOTRE VIE</i></h1>
         <p>
           Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire
-          sous le théme "Jour de la terre" qui se tiendra le 26 Avril 2023, à
-          l'ISTA Temara. <br />Il vous suffit de saisir votre nom et prénom dans
+          sous le théme "Notre Terre, Notre vie" qui se tiendra <i style="color:red;font-weight: 800;font-size: 1em;">le 26 Avril 2023,</i> à
+          <i style="color:red;font-weight: 800;font-size: 1em;">l'ISTA Temara.</i> <br />Il vous suffit de saisir votre nom et prénom dans
           la zone de texte pour télécharger votre invitation.
         </p>
         <h2>HAPPY EARTH DAY</h2>
@@ -75,8 +75,6 @@
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-          date = new Date().toLocaleString();
-
         };
         img.src = "carte.jpg";
         window.location.replace("thank.html")
