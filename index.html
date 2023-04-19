@@ -1,84 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EARTH DAY OFPPT-TEMARA</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="form-container">
-      <form class="form">
-        <label for="username">Votre Nom Complet</label>
-        <input
-          type="text"
-          name="username"
-          id="nomComplet"
-          class="username-bar"
-          required
-          placeholder="Saisir Votre Nom et Prenom"
-        />
-        <canvas id="canvas"></canvas>
 
-        <button type="button" onclick="generateImage()" class="submit-btn">
-          Telecharger votre invitaion
-        </button>
-      </form>
-      <div class="sidebar">
-        <h1>Séminaire : <i style="color:red;font-weight: 800;font-size: 1em;">NOTRE TERRE NOTRE VIE</i></h1>
-        <p>
-          Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire
-          sous le théme "Notre Terre, Notre vie" qui se tiendra <i style="color:red;font-weight: 800;font-size: 1em;">le 26 Avril 2023,</i> à
-          <i style="color:red;font-weight: 800;font-size: 1em;">l'ISTA Temara.</i> <br />Il vous suffit de saisir votre nom et prénom dans
-          la zone de texte pour télécharger votre invitation.
-        </p>
-        <h2>HAPPY EARTH DAY</h2>
-      </div>
-    </section>
-    <script>
-      function generateImage() {
-        // Load the image
-        var img = new Image();
-        img.onload = function () {
-          // Create a canvas element
-          var canvas = document.getElementById("canvas");
-          canvas.width = img.width;
-          canvas.height = img.height;
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EARTH DAY OFPPT-TEMARA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-          // Draw the image on the canvas
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0);
+<body>
+  <section class="form-container">
+    <form class="form">
+      <label for="username">Votre Nom Complet</label>
+      <input type="text" name="username" id="nomComplet" class="username-bar" required
+        placeholder="Saisir Votre Nom et Prenom" />
+      <canvas id="canvas"></canvas>
 
-          // Draw the text on the canvas
-          var text = document.getElementById("nomComplet").value;
-          if (text.length < 15) {
-            ctx.font = "40px bolder Consolas";
-            ctx.fillStyle = "black";
-            ctx.fillText(text, 40, 370);
-          } else if (text.length > 15 && text.length < 22) {
-            ctx.font = "32px bolder Consolas";
-            ctx.fillStyle = "black";
-            ctx.fillText(text, 20, 370);
-          } else {
-            ctx.font = "26px bolder Consolas";
-            ctx.fillStyle = "black";
-            ctx.fillText(text, 10, 370);
-            
-          }
+      <button type="button" onclick="generateImage()" class="submit-btn">
+        Telecharger votre invitaion
+      </button>
+    </form>
+    <div class="sidebar">
+      <h1>
+        Séminaire :
+        <i style="color: red; font-weight: 800; font-size: 1em">NOTRE TERRE NOTRE VIE</i>
+      </h1>
+      <p>
+        Madame, Monsieur, Nous avons le plaisir de vous inviter au séminaire
+        sous le théme "Notre Terre, Notre vie" qui se tiendra
+        <i style="color: red; font-weight: 800; font-size: 1em">le 26 Avril 2023,</i>
+        à
+        <i style="color: red; font-weight: 800; font-size: 1em">l'ISTA Temara.</i>
+        <br />Il vous suffit de saisir votre nom et prénom dans la zone de
+        texte pour télécharger votre invitation.
+      </p>
+      <h2>HAPPY EARTH DAY</h2>
+    </div>
+  </section>
+  <script>
+    function sleep(ms) {
+      return new Promise((res) => setTimeout(res, ms));
+    }
+    async function generateImage() {
+      // Load the image
+      var img = new Image();
+      img.onload = function () {
+        // Create a canvas element
+        var canvas = document.getElementById("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
 
-          // Convert the canvas to an image and download it
-          var link = document.createElement("a");
-          link.href = canvas.toDataURL("image/png");
-          link.download =
-            "Invitation " + document.getElementById("nomComplet").value + ".png";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        };
-        img.src = "carte.jpg";
-        //window.location.replace("thank.html")
-      }
-    </script>
-  </body>
+        // Draw the image on the canvas
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+
+        // Draw the text on the canvas
+        var text = document.getElementById("nomComplet").value;
+        if (text.length < 15) {
+          ctx.font = "40px bolder Consolas";
+          ctx.fillStyle = "black";
+          ctx.fillText(text, 40, 370);
+        } else if (text.length > 15 && text.length < 22) {
+          ctx.font = "32px bolder Consolas";
+          ctx.fillStyle = "black";
+          ctx.fillText(text, 20, 370);
+        } else {
+          ctx.font = "26px bolder Consolas";
+          ctx.fillStyle = "black";
+          ctx.fillText(text, 10, 370);
+        }
+
+        // Convert the canvas to an image and download it
+        var link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download =
+          "Invitation " +
+          document.getElementById("nomComplet").value +
+          ".png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+      img.src = "carte.jpg";
+      await sleep(5000);
+      window.location.replace("thank.html");
+    }
+  </script>
+</body>
+
 </html>
